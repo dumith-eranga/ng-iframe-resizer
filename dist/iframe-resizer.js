@@ -6,8 +6,11 @@
         .directive(ngIframeResizer, function () {
             return {
                 restrict: 'A',
+                scope: {
+                    options: '='
+                },
                 link: function (scope, element) {
-                    iFrameResize({}, element[0]);
+                    iFrameResize(scope.options || {}, element[0]);
                 }
             };
         });
